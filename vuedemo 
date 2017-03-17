@@ -1,0 +1,88 @@
+使用实现以下问题
+
+1 控制下面的段落只显示一个,且可以随意切换
+
+p(v-if="index === 1") 一去二三里 display
+p(v-else="") 烟村四五家
+v-show=""
+
+
+2 点击第一个按钮隐藏段落文字,点击第二个显示文字
+
+button(v-on:click="hide()") hideme!
+button(v-on:click="show()") showme!
+
+p(v-if="flag") 看不见我
+
+
+vue:
+data: {
+  flag:true
+},
+methods: {
+  show () {
+    this.flag = true
+  },
+  hide () {
+    this.flag = false
+  }
+
+}
+
+
+
+3 点击按钮隐藏段落文字,再点击显示
+
+button(@click="clickBtn()")clickme!
+p(v-if="flag")   我就是我
+
+vue:
+  data:{
+    flag: true
+  },
+  methods:{
+    clickBtn(){
+      this.flag = !this.flag
+
+      <!-- if (this.flag) {
+        this.flag = false
+      } else {
+        this.flag = true
+      } -->
+    }
+  }
+
+4 渲染一个列表
+
+p(v-for='arr in arr') 今天" "号,是星期"  " ,我今天的心情是" " 
+
+arr: [
+  {
+    day: 1,
+    week: '一',
+    xinqing: '高兴'
+  },
+  {
+    day: 2,
+    week: '二',
+    xinqing: '难过'
+  },
+  {
+    day: 3,
+    week: '三',
+    xinqing: '郁闷'
+  }
+]
+
+
+
+
+
+vue:
+  data:{
+    arr:[
+      {text1:'day1:','week1:','xinqing1:'},
+      {text2:'day2:','week2:','xinqing2:'},
+      {text3:'day3:','week3:','xinqing3:'},
+    ]
+  }
